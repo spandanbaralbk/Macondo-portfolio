@@ -85,19 +85,20 @@ body{
 }
 
 .chiquita{
-    background :#111;
-  color:#fff !important;
-        font-weight:600 !important;
-  border-radius :100px;
-      padding:8px 18px;
-  font-size:11.5px;
-        letter-spacing :0.08em;
-    text-transform:uppercase;
-  text-decoration :none;
+    color :rgba(255,255,255,0.8);
+        text-decoration:none;
+  font-size :11.5px;
+        font-weight:500;
+  letter-spacing :0.08em;
+        text-transform:uppercase;
+  padding :8px 18px;
+        border-radius:100px;
+  transition :background 0.15s,color 0.15s;
 }
 
 .chiquita:hover{
-      background:#2a2a2a !important;
+       background:rgba(255,255,255,0.1);
+  color :#fff;
 }
 
 .maindrip{
@@ -434,4 +435,19 @@ footer{
         font-size:12px;
   color :rgba(255,255,255,0.25);
       letter-spacing:0.04em;
+}
+.keonho{
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 11.5px;
+  font-weight: 500;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+padding: 8px 18px;
+border-radius: 100px;
+transition: background 0.15s,color 0.15s;
+}
+.keonho:hover{
+  background:rgba(255,255,255,0.1) ;
+  color: #fff;
 }

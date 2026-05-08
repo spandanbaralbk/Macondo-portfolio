@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> My Interests</title>
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+   
+   <style>
+    /* idk how to use external css in second html file so here we are with internal css */
+   
+    *,*::before,*::after{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+    }
+    body{
+        font-family: 'DM Sans',sans-serif;
+        background: #050810;
+        color: #fff;
+        overflow-x: hidden;
+    }
+    .tonystark{
+        position: fixed;
+        top: 20px;
+        left: 24px;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background:rgba(255,255,255,0.07);
+        border:0.5px solid rgba(255,255,255,0.15);
+        border-radius: 100px;
+        padding: 10px 18px;
+        color :#fff;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        transition: background 0.2s;
+    }
+    .tonystark:hover{
+        background:rgba(255,255,255,0.15);
+    }
+    .nickfury{
+        text-align: center;
+        padding: 120px 24px 60px;
+        position: relative;
+    }
+    .nickfury::before{
+        content: '';
+        position: absolute;
+        inset: 0;
+        background :radial-gradient(ellipse at 50% 0%,rgba(120,60,220,0.25) 0%,transparent 60%);
+        pointer-events: none;
+    }
+    .thor{
+        font-family: 'Bebas Neue',sans-serif;
+        font-size: clamp(60px,12vw,140px);
+        letter-spacing: 0.04em;
+        line-height: 0.9;
+        background: linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.4) 100%);
+        -webkit-text-fill-color:transparent;
+        -webkit-background-clip: text;
+        background-clip :text;
+    }
+    .loki{
+        font-size:14px;
+        color :rgba(255,255,255,0.45);
+        letter-spacing:0.12em;
+        text-transform :uppercase;
+        margin-top:16px;
+    }
+    .wanda{
+        max-width: 700px;
+        margin: 0 auto;
+        padding:0 24px 80px;
+    }
+    .vision{
+        font-family: 'Bebas Neue',sans-serif;
+        font-size: 32px;
+        letter-spacing: 0.08em;
+        color:rgba(255,255,255,0.3);
+        text-align: center;
+        margin-bottom: 24px;
+    }
+    .thanos{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .spiderman{
+        background:rgba(255,255,255,0.04);
+        border: 0.5px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: border-color 0.2s;
+    }
+    .spiderman:hover{
+        border-color:rgba(255,255,255,0.2)
+    }
+    .blackwidow{
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 12px 16px;
+        cursor: pointer;
+    }
+    .hawkeye{
+        font-family: 'Bebas Neue',sans-serif;
+        font-size: 24px;
+        color: rgba(255,255,255,0.2);
+        min-width: 32px;
+    }
+    .hulk{
+        flex:1;
+    }
+    .captainamerica{
+        font-size: 15px;
+        font-weight: 500;
+        color: #fff;
+    }
+    .warmachine{
+        font-size:12px;
+        color :rgba(255,255,255,0.45);
+        margin-top:2px;
+    }
+    .falcon{
+        width:32px;
+        height: 32px;
+        background-color: rgba(255,255,255,0.08);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, transform 0.3s;
+        font-size: 14px;
+    }
+    .spiderman.open .falcon{
+        transform: rotate(180deg);
+        background: rgba(255,255,255,0.15);
+    }
+    .antman{
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+    }
+    .spiderman.open .antman{
+        max-height: 200px;
+    }
+    .antman iframe{
+        width: 100%;
+        border: none;
+        display: block;
+    }
+    .scarletwitch{
+        max-width:1100px;
+        margin:0 auto;
+        padding:0 24px 80px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+    @media(max-width: 700px){
+        .scarletwitch{
+            grid-template-columns: 1fr;
+        }
+    }
+    .doctorstrange{
+        border-radius:24px;
+        padding: 40px 36px;
+        position: relative;
+        overflow: hidden;
+        min-height: 280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    .doctorstrange::before{
+        content: '';
+        position: absolute;
+        inset: 0;
+        opacity: 0.15;
+        transition:opacity 0.3s;
+    }
+    .doctorstrange:hover::before{
+        opacity: 0.25;
+    }
+    .animecard{
+        background: linear-gradient(135deg,#1a0533 0%,#0d0220 100%);
+        border: 0.5px solid rgba(180,80,255,0.2);
+    }
+    .animecard::before{
+        background:radial-gradient(ellipse at 80% 20%,#b450ff 0%,transparent 60%);
+        opacity: 0.2;
+    }
+    .f1card{
+        background:linear-gradient(135deg,#1f0505 0%,#0d0000 100%);
+        border: 0.5px solid rgba(255,50,50,0.2);
+    }
+    .f1card::before{
+        background: radial-gradient(ellipse at 80% 20%,#ff3232 0%,transparent 60%);
+        opacity: 0.2;
+    }
+    .marvelcard{
+        background:linear-gradient(135deg,#1a0808 0%,#0d0505 100%);
+        border: 0.5px solid rgba(255,80,30,0.2);
+    }
+    .marvelcard::before{
+        background:radial-gradient(ellipse at 80% 20%,#ff501e 0%,transparent 60%);
+        opacity: 0.2;
+    }
+    .kpopcard{
+        background:linear-gradient(135deg,#05101f 0%,#020810 100%);
+        border: 0.5px solid rgba(60,120,255,0.2);
+    }
+    .kpopcard::before{
+        background:radial-gradient(ellipse at 80% 20%,#3c78ff 0%,transparent 60%);
+        opacity: 0.2;
+    }
+    .blackpanther{
+        font-size: 48px;
+        margin-bottom: 16px;
+        position:relative;
+        z-index: 1;
+    }
+    .shang{
+        font-family: 'Bebas Neue',sans-serif;
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color:rgba(255,255,255,0.35);
+        margin-bottom: 6px;
+        position: relative;
+        z-index: 1;
+    }
+    .moonknight{
+        font-family:'Bebas Neue',sans-serif;
+        font-size :clamp(28px,4vw,42px);
+        letter-spacing: 0.04em;
+        line-height: 1;
+        position: relative;
+        z-index: 1;
+    }
+    .animecard .moonknight{ color:#c878ff; }
+    .f1card .moonknight{ color:#ff5050; }
+    .marvelcard .moonknight{ color:#ff6e3c; }
+    .kpopcard .moonknight{ color:#5a96ff; }
+    .pepper{
+        font-size: 13px;
+        color: rgba(255,255,255,0.6);
+        line-height: 1.65;
+        margin-top: 10px;
+        position: relative;
+        z-index: 1;
+    }
+    .yondu{
+        margin-top: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        position: relative;
+        z-index: 1;
+    }
+    .groot{
+        font-size: 11px;
+        padding: 4px 12px;
+        border-radius: 100px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+    }
+    .animecard .groot{ background:rgba(180,80,255,0.15); color:#c878ff; border:0.5px solid rgba(180,80,255,0.3); }
+    .f1card .groot{ background:rgba(255,50,50,0.15); color:#ff5050; border:0.5px solid rgba(255,50,50,0.3); }
+    .marvelcard .groot{ background:rgba(255,80,30,0.15); color:#ff6e3c; border:0.5px solid rgba(255,80,30,0.3); }
+    .kpopcard .groot{ background:rgba(60,120,255,0.15); color:#5a96ff; border:0.5px solid rgba(60,120,255,0.3); }
+    .rocket{
+        text-align: center;
+        padding: 40px 24px;
+        font-size: 12px;
+        color: rgba(255,255,255,0.2);
+        letter-spacing: 0.06em;
+        border-top: 0.5px solid rgba(255,255,255,0.06);
+    }
+    </style>
+    </head>
+    <body>
+        <a href="index.html" class="tonystark">← Back to Portfolio</a>
+
+    <div class="nickfury">
+      <h1 class="thor">Fan<br>Zone</h1>
+      <p class="loki">Anime · F1 · Marvel · Kpop</p>
+    </div>
+
+    <div class="wanda">
+      <p class="vision">Now Playing</p>
+      <div class="thanos">
+
+        <div class="spiderman" id="song1">
+          <div class="blackwidow" onclick="toggleSong('song1')">
+            <span class="hawkeye">01</span>
+            <div class="hulk">
+              <div class="captainamerica">ZEN</div>
+              <div class="warmachine">Jennie</div>
+            </div>
+            <div class="falcon">▾</div>
+          </div>
+          <div class="antman">
+            <iframe src="https://open.spotify.com/embed/track/2chbuybiy6aDDBC985tJcP"
+              height="80" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <div class="spiderman" id="song2">
+          <div class="blackwidow" onclick="toggleSong('song2')">
+            <span class="hawkeye">02</span>
+            <div class="hulk">
+              <div class="captainamerica">Fashion</div>
+              <div class="warmachine">Cortis</div>
+            </div>
+            <div class="falcon">▾</div>
+          </div>
+          <div class="antman">
+            <iframe src="https://open.spotify.com/embed/track/4ecdsGz3Hg6TKPwQ0ZOdJz"
+              height="80" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <div class="spiderman" id="song3">
+          <div class="blackwidow" onclick="toggleSong('song3')">
+            <span class="hawkeye">03</span>
+            <div class="hulk">
+              <div class="captainamerica">CHOOM</div>
+              <div class="warmachine">BABYMONSTER</div>
+            </div>
+            <div class="falcon">▾</div>
+          </div>
+          <div class="antman">
+            <iframe src="https://open.spotify.com/embed/track/4cox7ONwuCwUvfZ9fsGDVu"
+              height="80" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"></iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="scarletwitch">
+
+      <div class="doctorstrange animecard">
+        <div class="blackpanther">⛩️</div>
+        <div class="shang">Currently Obsessed With</div>
+        <div class="moonknight">Anime</div>
+        <p class="pepper">From shonen battles to slice of life — anime hits different every time.</p>
+        <div class="yondu">
+          <span class="groot">Attack on Titan</span>
+          <span class="groot">Jujutsu Kaisen</span>
+          <span class="groot">One Piece</span>
+          <span class="groot">Demon Slayer</span>
+        </div>
+      </div>
+
+      <div class="doctorstrange f1card">
+        <div class="blackpanther">🏎️</div>
+        <div class="shang">Full Send Every Race</div>
+        <div class="moonknight">Formula 1</div>
+        <p class="pepper">Anything doesnt match the vibes car zooming past us at 300km/h.</p>
+        <div class="yondu">
+          <span class="groot">33 Max Verstappen(Personally my fav)</span>
+          <span class="groot">Lewis Hamilton, Kimi Antonelli(Second favs)</span>
+          <span class="groot">Banana Leclerc🍌(a.k.a Charles Leclerc)</span>
+          <span class="groot">Red Bull(Personally रातो साँड़ is much better)</span>
+        </div>
+      </div>
+
+      <div class="doctorstrange marvelcard">
+        <div class="blackpanther">⚡</div>
+        <div class="shang">Avengers Assemble</div>
+        <div class="moonknight">Marvel</div>
+        <p class="pepper">No doubt MCU is better than DCU and if you wanna fight im ready.</p>
+        <div class="yondu">
+          <span class="groot">Iron Man(The G.O.A.T)</span>
+          <span class="groot">Spiderman(For me its मकड़ी मानव)</span>
+          <span class="groot">Doctor Strange(Perfect cast is benedict-cucumber-batch)</span>
+        </div>
+      </div>
+
+      <div class="doctorstrange kpopcard">
+        <div class="blackpanther">🎤</div>
+        <div class="shang">Stan Forever</div>
+        <div class="moonknight">Kpop</div>
+        <p class="pepper">The music, the choreo with the instrumentals, the visuals — Kpop just goes crazy hard fr.</p>
+        <div class="yondu">
+          <span class="groot">BLACKPINK(Jennie stan for life)</span>
+          <span class="groot">BABYMONSTER(The one i support from my heart)</span>
+          <span class="groot">Cortis(They really are goofy af)</span>
+          <span class="groot">ILLIT(How do you even say MAMIHLAPINATAPAI)</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="rocket">Spandan Baral BK — Fan Zone (पन्खा क्षेत्र)</div>
+
+    <script>
+      function toggleSong(id){
+        const card = document.getElementById(id);
+        card.classList.toggle('open');
+      }
+    </script>
+    </body>
+</html>
