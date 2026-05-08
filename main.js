@@ -1,4 +1,4 @@
-const words = [
+const wordstuff = [
   'the', 'be', 'to', 'of', 'and', 'a', 'in', 'that', 'have', 'it',
   'for', 'not', 'on', 'with', 'he', 'as', 'you', 'do', 'at', 'this',
   'but', 'his', 'by', 'from', 'they', 'we', 'say', 'her', 'she', 'or',
@@ -11,113 +11,113 @@ const words = [
   'our', 'work', 'first', 'well', 'way', 'even', 'new', 'want', 'because'
 ];
 
-let wordlist = [];
-let wordindex = 0;
-let correctcount = 0;
-let wrongcount = 0;
-let timeleft = 30;
-let gameinterval = null;
-let gamestarted = false;
+let wordpile = [];
+let whereami = 0;
+let gotem = 0;
+let nope = 0;
+let secsleft = 30;
+let cheshiretimer = null;
+let hasbegun = false;
 
-const wordsarea = document.getElementById('wordsarea');
-const typebox = document.getElementById('typebox');
+const wordbox = document.getElementById('wordbox');
+const userinput = document.getElementById('userinput');
 const wpmcount = document.getElementById('wpmcount');
 const accuracycount = document.getElementById('accuracycount');
 const timercount = document.getElementById('timercount');
-const playbtn = document.getElementById('playbtn');
+const gobtn = document.getElementById('gobtn');
 
-const topbar = document.querySelector('.topbar');
+const jennie = document.querySelector('.jennie');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 20) {
-        topbar.classList.add('scrolled');
+        jennie.classList.add('scrolled');
     } else {
-        topbar.classList.remove('scrolled');
+        jennie.classList.remove('scrolled');
     }
 });
 
-function buildwords() {
-    wordlist = [];
+function fillwords() {
+    wordpile = [];
     for (let i = 0; i < 60; i++) {
-        wordlist.push(words[Math.floor(Math.random() * words.length)]);
+        wordpile.push(wordstuff[Math.floor(Math.random() * wordstuff.length)]);
     }
 }
 
-function showwords() {
-    wordsarea.innerHTML = wordlist.map((word, i) => {
-        let style = '';
-        if (i < wordindex) style = 'correct';
-        else if (i === wordindex) style = 'active';
-        return `<span class="worditem ${style}">${word}</span>`;
+function renderfrfr() {
+    wordbox.innerHTML = wordpile.map((word,   i) => {
+        let vibe = '';
+        if (i < whereami) vibe = 'correct';
+        else if (i === whereami) vibe = 'active';
+        return `<span class="worditem ${vibe}">${word}</span>`;
     }).join(' ');
 
-    const current = wordsarea.querySelector('.worditem.active');
-    if (current) current.scrollIntoView({ block: 'nearest' });
+    const currentword = wordbox.querySelector('.worditem.active');
+    if (currentword) currentword.scrollIntoView({  block: 'nearest'  });
 }
 
-function startgame() {
-    wordindex = 0;
-    correctcount = 0;
-    wrongcount = 0;
-    timeleft = 30;
-    gamestarted = false;
+function letsgoo() {
+    whereami = 0;
+    gotem = 0;
+    nope = 0;
+    secsleft = 30;
+    hasbegun = false;
 
-    buildwords();
-    showwords();
+    fillwords();
+    renderfrfr();
 
-    typebox.value = '';
-    typebox.disabled = false;
-    typebox.focus();
+    userinput.value = '';
+    userinput.disabled = false;
+    userinput.focus();
 
     wpmcount.textContent = '0';
     accuracycount.textContent = '100';
     timercount.textContent = '30';
 
-    playbtn.textContent = 'Restart';
-    clearInterval(gameinterval);
+    gobtn.textContent = 'Restart';
+    clearInterval(cheshiretimer);
 }
 
-function endgame() {
-    typebox.disabled = true;
-    clearInterval(gameinterval);
-    playbtn.textContent = 'Try Again';
+function itsover() {
+    userinput.disabled = true;
+    clearInterval(cheshiretimer);
+    gobtn.textContent = 'Try Again';
 
-    const total = correctcount + wrongcount;
-    const accuracy = total > 0 ? Math.round((correctcount / total) * 100) : 100;
-    accuracycount.textContent = accuracy;
-    wpmcount.textContent = correctcount;
+    const total = gotem + nope;
+    const howgood = total > 0 ? Math.round((gotem / total) * 100) : 100;
+    accuracycount.textContent = howgood;
+    wpmcount.textContent = gotem;
 }
 
-typebox.addEventListener('input', (e) => {
-    if (!gamestarted) {
-        gamestarted = true;
-        gameinterval = setInterval(() => {
-            timeleft--;
-            timercount.textContent = timeleft;
-            if (timeleft <= 0) endgame();
-        }, 1000);
+userinput.addEventListener('input', (e) => {
+    if (!hasbegun) {
+        hasbegun = true;
+        cheshiretimer = setInterval(() => {
+            secsleft--;
+            timercount.textContent = secsleft;
+            if (secsleft <= 0) itsover();
+        },   1000);
     }
 
-    const typed = e.target.value.trim();
+    const usertyped = e.target.value.trim();
 
     if (e.target.value.endsWith(' ')) {
-        if (typed === wordlist[wordindex]) {
-            correctcount++;
+        if (usertyped === wordpile[whereami]) {
+            gotem++;
         } else {
-            wrongcount++;
-            const allwords = wordsarea.querySelectorAll('.worditem');
-            allwords[wordindex].classList.add('incorrect');
+            nope++;
+            const allspans = wordbox.querySelectorAll('.worditem');
+            allspans[whereami].classList.add('incorrect');
         }
 
-        wordindex++;
-        typebox.value = '';
-        wpmcount.textContent = correctcount;
+        whereami++;
+        userinput.value = '';
+        wpmcount.textContent = gotem;
 
-        const total = correctcount + wrongcount;
-        const accuracy = total > 0 ? Math.round((correctcount / total) * 100) : 100;
-        accuracycount.textContent = accuracy;
+        const total = gotem + nope;
+        const howgood = total > 0 ? Math.round((gotem / total) * 100) : 100;
+        accuracycount.textContent = howgood;
 
-        showwords();
+        renderfrfr();
     }
 });
 
-playbtn.addEventListener('click', startgame);
+gobtn.addEventListener('click',  letsgoo);
