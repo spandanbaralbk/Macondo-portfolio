@@ -11,118 +11,113 @@ const words = [
   'our', 'work', 'first', 'well', 'way', 'even', 'new', 'want', 'because'
 ];
 
-let currentWords = [];
-let currentIndex = 0;
-let correctWords = 0;
-let incorrectWords = 0;
-let timer = 30;
-let interval = null;
-let started = false;
+let wordlist = [];
+let wordindex = 0;
+let correctcount = 0;
+let wrongcount = 0;
+let timeleft = 30;
+let gameinterval = null;
+let gamestarted = false;
 
-const wordDisplay = document.getElementById('wordDisplay');
-const typingInput = document.getElementById('typingInput');
-const wpmDisplay = document.getElementById('wpmDisplay');
-const accuracyDisplay = document.getElementById('accuracyDisplay');
-const timerDisplay = document.getElementById('timerDisplay');
-const startBtn = document.getElementById('startBtn');
+const wordsarea = document.getElementById('wordsarea');
+const typebox = document.getElementById('typebox');
+const wpmcount = document.getElementById('wpmcount');
+const accuracycount = document.getElementById('accuracycount');
+const timercount = document.getElementById('timercount');
+const playbtn = document.getElementById('playbtn');
 
-// Sticky nav scroll effect
-const nav = document.querySelector('.sticky-nav');
+const topbar = document.querySelector('.topbar');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 20) {
-    nav.classList.add('scrolled');
-  } else {
-    nav.classList.remove('scrolled');
-  }
+    if (window.scrollY > 20) {
+        topbar.classList.add('scrolled');
+    } else {
+        topbar.classList.remove('scrolled');
+    }
 });
 
-function generateWords() {
-  currentWords = [];
-  for (let i = 0; i < 60; i++) {
-    currentWords.push(words[Math.floor(Math.random() * words.length)]);
-  }
+function buildwords() {
+    wordlist = [];
+    for (let i = 0; i < 60; i++) {
+        wordlist.push(words[Math.floor(Math.random() * words.length)]);
+    }
 }
 
-function renderWords() {
-  wordDisplay.innerHTML = currentWords.map((word, i) => {
-    let cls = '';
-    if (i < currentIndex) cls = 'correct';
-    else if (i === currentIndex) cls = 'active';
-    return `<span class="word ${cls}">${word}</span>`;
-  }).join('');
+function showwords() {
+    wordsarea.innerHTML = wordlist.map((word, i) => {
+        let style = '';
+        if (i < wordindex) style = 'correct';
+        else if (i === wordindex) style = 'active';
+        return `<span class="worditem ${style}">${word}</span>`;
+    }).join(' ');
 
-  // scroll active word into view
-  const active = wordDisplay.querySelector('.word.active');
-  if (active) active.scrollIntoView({ block: 'nearest' });
+    const current = wordsarea.querySelector('.worditem.active');
+    if (current) current.scrollIntoView({ block: 'nearest' });
 }
 
-function startGame() {
-  currentIndex = 0;
-  correctWords = 0;
-  incorrectWords = 0;
-  timer = 30;
-  started = false;
+function startgame() {
+    wordindex = 0;
+    correctcount = 0;
+    wrongcount = 0;
+    timeleft = 30;
+    gamestarted = false;
 
-  generateWords();
-  renderWords();
+    buildwords();
+    showwords();
 
-  typingInput.value = '';
-  typingInput.disabled = false;
-  typingInput.focus();
+    typebox.value = '';
+    typebox.disabled = false;
+    typebox.focus();
 
-  wpmDisplay.textContent = '0';
-  accuracyDisplay.textContent = '100';
-  timerDisplay.textContent = '30';
+    wpmcount.textContent = '0';
+    accuracycount.textContent = '100';
+    timercount.textContent = '30';
 
-  startBtn.textContent = 'Restart';
-  clearInterval(interval);
+    playbtn.textContent = 'Restart';
+    clearInterval(gameinterval);
 }
 
-function endGame() {
-  typingInput.disabled = true;
-  clearInterval(interval);
-  startBtn.textContent = 'Try Again';
+function endgame() {
+    typebox.disabled = true;
+    clearInterval(gameinterval);
+    playbtn.textContent = 'Try Again';
 
-  const total = correctWords + incorrectWords;
-  const accuracy = total > 0 ? Math.round((correctWords / total) * 100) : 100;
-  accuracyDisplay.textContent = accuracy;
-  wpmDisplay.textContent = correctWords;
+    const total = correctcount + wrongcount;
+    const accuracy = total > 0 ? Math.round((correctcount / total) * 100) : 100;
+    accuracycount.textContent = accuracy;
+    wpmcount.textContent = correctcount;
 }
 
-typingInput.addEventListener('input', (e) => {
-  // start timer on first keypress
-  if (!started) {
-    started = true;
-    interval = setInterval(() => {
-      timer--;
-      timerDisplay.textContent = timer;
-      if (timer <= 0) endGame();
-    }, 1000);
-  }
-
-  const typed = e.target.value.trim();
-
-  // when space is pressed, check word
-  if (e.target.value.endsWith(' ')) {
-    if (typed === currentWords[currentIndex]) {
-      correctWords++;
-    } else {
-      incorrectWords++;
-      // mark incorrect
-      const spans = wordDisplay.querySelectorAll('.word');
-      spans[currentIndex].classList.add('incorrect');
+typebox.addEventListener('input', (e) => {
+    if (!gamestarted) {
+        gamestarted = true;
+        gameinterval = setInterval(() => {
+            timeleft--;
+            timercount.textContent = timeleft;
+            if (timeleft <= 0) endgame();
+        }, 1000);
     }
 
-    currentIndex++;
-    typingInput.value = '';
-    wpmDisplay.textContent = correctWords;
+    const typed = e.target.value.trim();
 
-    const total = correctWords + incorrectWords;
-    const accuracy = total > 0 ? Math.round((correctWords / total) * 100) : 100;
-    accuracyDisplay.textContent = accuracy;
+    if (e.target.value.endsWith(' ')) {
+        if (typed === wordlist[wordindex]) {
+            correctcount++;
+        } else {
+            wrongcount++;
+            const allwords = wordsarea.querySelectorAll('.worditem');
+            allwords[wordindex].classList.add('incorrect');
+        }
 
-    renderWords();
-  }
+        wordindex++;
+        typebox.value = '';
+        wpmcount.textContent = correctcount;
+
+        const total = correctcount + wrongcount;
+        const accuracy = total > 0 ? Math.round((correctcount / total) * 100) : 100;
+        accuracycount.textContent = accuracy;
+
+        showwords();
+    }
 });
 
-startBtn.addEventListener('click', startGame);
+playbtn.addEventListener('click', startgame);

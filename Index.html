@@ -1,120 +1,120 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
-        <title>My portfolio</title>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <title>My portfolio</title>
+  </head>
+  <body>
 
-    </head>
-    <body>
-        <div class="hero">
-            <nav class="sticky-nav">
-                <div class="logo-icon">
-                    <svg viewBox=" 0  0 16 16" fill="none">
-                        <path d="M8 2C8 2 4 5 4 9C4 11.2 5.8 13 8 13C10.2 13 12 11.2 12 9C12 5 8 2 8 2Z"
-                        stroke="white" stroke-width="1.3" fill="none"/>
-                        <circle cx="8" cy="9" r="1.5" fill="white" opacity="0,7"/>
-                    </svg>
-                </div>
-            </nav>"
+    <nav class="topbar">
+      <a href="#home" class="brandname">
+        <div class="brandicon">
+          <svg viewBox="0 0 16 16" fill="none">
+            <path d="M8 2C8 2 4 5 4 9C4 11.2 5.8 13 8 13C10.2 13 12 11.2 12 9C12 5 8 2 8 2Z"
+              stroke="white" stroke-width="1.3" fill="none"/>
+            <circle cx="8" cy="9" r="1.5" fill="white" opacity="0.7"/>
+          </svg>
         </div>
-        <div class="first">
-            <nav>
-                <a href ="#home" class="logo">Spandan Baral BK</a>
-                <div class="nav-links">
-                    <a href="#home">Home</a>
-                <a href="#about">About</a>
-            <a href="#contact" class="nav-cta">Contact</a>
-                </div>
-            </nav>
+        Spandan Baral BK
+      </a>
+      <div class="menulinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="contactlink">Contact</a>
+      </div>
+    </nav>
+
+    <div class="herozone">
+
+      <div class="typingzone">
+        <h2 class="gametitle">Typing Game made by Spandan</h2>
+        <p class="gamesubtitle">How fast can you type be fr?</p>
+
+        <div class="wordsarea" id="wordsarea">
+          Click Start to begin!
         </div>
-        <div class="Mac-mini">
-            <div class="typing-game">
-                <h2 class ="game-title">Typing Game made by Spandan</h2>
-                <p class="game-subtitle">How fast can you type be fr?</p>
 
-                <div class="word-display" id="wordDisplay">
-                    Click Start to Start(begin)!
-                </div>
-                <input type = "text"  class="typing-input" id="typingInput" 
-                placeholder="Start typing here gng..." 
-                disabled>
-                <div class ="game-stats">
-                    <div class ="stat-box">
-                        <span class="stat-number" id="wpmDisplay">0</span>
-                        <span class="stat-label">WPM</span>
+        <input type="text" class="typebox" id="typebox"
+          placeholder="Start typing here gng..."
+          disabled>
 
-                </div>
-                <div class="stat-box">
-                    <span class="stat-number" id="accuracyDisplay">100</span>
-                    <span class="stat-label">Accuracy %</span>
-                </div>
-                    <div class="stat-box">
-                        <span class="stat-number" id="timeDisplay">30</span>
-                        <span class="stat-label">Seconds</span>
-                    </div>
-                    </div>
-                    <button class="start-btn" id="startBtn">Start test</button>
-            </div>
-
-                
-            </div>
-            <h1>Welcome to my simple portfolio website</h1>
+        <div class="statsrow">
+          <div class="statcard">
+            <span class="statnumber" id="wpmcount">0</span>
+            <span class="statlabel">WPM</span>
+          </div>
+          <div class="statcard">
+            <span class="statnumber" id="accuracycount">100</span>
+            <span class="statlabel">Accuracy %</span>
+          </div>
+          <div class="statcard">
+            <span class="statnumber" id="timercount">30</span>
+            <span class="statlabel">Seconds</span>
+          </div>
         </div>
-        <div class="mac-bottom">
-            <p class="mac-sub">
-                I design and build simple working website about any topic 
-                for practice and fun.
-            </p>
-            <a href"=#projects" class="btn-discover">
-                <span>View My Projects</span>
-                <div class=""btn-arrow">
-                    <svg viewBox="0 0 18 18" fill="none">
-                        <path d="M4 9H14M14 9L9.5 4.5M14 9L9.5 13.5"
-                        stroke="white" stroke-width="1.6"
-                        stroke-linecap="round" stroke-linejoin="round"/>
 
-                    </svg>
-                </div>
-            </a>
+        <button class="playbtn" id="playbtn">Start Test</button>
+      </div>
+
+      <div class="herobottom">
+        <p class="herotext">
+          I design and build simple working websites
+          about any topic for practice and fun.
+        </p>
+        <a href="#projects" class="projectsbtn">
+          <span>View My Projects</span>
+          <div class="arrowcircle">
+            <svg viewBox="0 0 18 18" fill="none">
+              <path d="M4 9H14M14 9L9.5 4.5M14 9L9.5 13.5"
+                stroke="white" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+    <section class="aboutzone" id="about">
+      <div class="aboutleft">
+        <span class="sectiontag">About Me</span>
+        <h2>I'm a developer<br>I am good at web development</h2>
+        <p>I'm a student interested in web development and design. Other than coding I like Anime, Kpop, Formula 1 and Marvel.</p>
+        <a href="#contact" class="reachbtn">Get In Touch →</a>
+      </div>
+      <div class="skillsgrid">
+        <div class="skillcard">
+          <span class="skillicon">🧑‍💻</span>
+          <h3>Frontend Development</h3>
+          <p>HTML, CSS, JavaScript</p>
         </div>
-        <section class="about" id="about">
-            <div class="about-left">
-                <span class="section-label">About Me</span>
-                <h2>I'm a developer <br> I am good at web development</h2>
-                <p>I'm a student interested in web development and design. Other than coding I like Anime,Kpop, Formula 1 and Marvel.</p>
-                <a href="#contact" class="about-btn">Get In Touch</a>
-            </div>
-            <div class ="Rami-right">
-                <div class="skill-card">
-                    <span class="skill-icon">🧑‍💻</span>
-                    <h3>Frontend Development</h3>
-                    <p>HTML, CSS, JavaScript</p>
-                </div>
-                <div class="skill-card">
-                    <span class="skill-icon">🎨</span>
-                    <h3>Design</h3>
-                    <p>UI/UX Design, Figma</p>
-                </div>
-                <div class="skill-card">
-                    <span class="skill-icon">⚙️</span>
-                    <h3>Tools</h3>
-                    <p>Git, Vs Code, GitHub</p>
-                </div>
-                <div class="skill-card">
-                    <span class="skill-icon">📱</span>
-                    <h3>Responsive</h3>
-                    <p>Mobile-first Design</p>
-                </div>
-            </div>
-        </section>
-        <section class="contact" id="contact">
-            <span class = "section-label">Contact</span>
-            <h2>Let's Collaborate on Projects Together</h2>
-            <p>Have a design,Dont hesitate to reach out.</p>
-            <a href="mailto:spandanbbk@gmail.com" class ="contact-btn">Email Me</a>
-        </section>
+        <div class="skillcard">
+          <span class="skillicon">🎨</span>
+          <h3>Design</h3>
+          <p>UI/UX Design, Figma</p>
+        </div>
+        <div class="skillcard">
+          <span class="skillicon">⚙️</span>
+          <h3>Tools</h3>
+          <p>Git, VS Code, GitHub</p>
+        </div>
+        <div class="skillcard">
+          <span class="skillicon">📱</span>
+          <h3>Responsive</h3>
+          <p>Mobile-first Design</p>
+        </div>
+      </div>
+    </section>
 
+    <section class="contactzone" id="contact">
+      <span class="sectiontag">Contact</span>
+      <h2>Let's Collaborate on Projects Together</h2>
+      <p>Have a project? Don't hesitate to reach out.</p>
+      <a href="mailto:spandanbbk@gmail.com" class="emailbtn">Email Me →</a>
+    </section>
 
-    </body>
+    <footer>© 2025 Spandan Baral BK. All rights reserved.</footer>
+
+  </body>
 </html>
