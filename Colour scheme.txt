@@ -1,0 +1,53 @@
+Backgrounds
+
+#050810 — deepest dark (main bg)
+#080d1f — slightly lighter dark
+#0a0f2e — navy dark (hero section)
+#0d1a4a — mid navy
+
+Accent / Brand Blue
+
+#3b6fd4 — primary blue (buttons, highlights)
+#2d5ab8 — hover state blue
+#5a96ff — lighter blue (tags, skill bars)
+
+Text
+
+#fff — primary text
+rgba(255,255,255,0.8) — nav links
+rgba(255,255,255,0.6) — body text
+rgba(255,255,255,0.55) — hero description
+rgba(255,255,255,0.5) — subtler text
+rgba(255,255,255,0.45) — even subtler
+rgba(255,255,255,0.35) — label text
+rgba(255,255,255,0.25) — very faint
+rgba(255,255,255,0.2) — footer/placeholder text
+
+Borders & Surfaces
+
+rgba(255,255,255,0.1) — card borders
+rgba(255,255,255,0.08) — subtle borders
+rgba(255,255,255,0.06) — near-invisible dividers
+rgba(255,255,255,0.07) — glass button bg
+rgba(255,255,255,0.15) — glass button hover
+rgba(20,50,120,0.4) — card fill (about section)
+
+Gradients (background glows)
+
+rgba(60,120,220,0.35) — blue radial glow
+rgba(20,50,120,0.4) — deeper blue glow
+rgba(60,120,220,0.25) — lighter blue glow (projects page)
+
+Fan Zone only (accent colors)
+
+#b450ff / #c878ff — anime purple
+rgba(180,80,255,...) — purple glow
+#ff3232 / #ff5050 — F1 red
+#ff501e / #ff6e3c — Marvel orange-red
+#3c78ff / #5a96ff — Kpop blue
+
+Status / Error
+
+#3b6fd4 — correct (typing game)
+#e05c5c — incorrect (typing game)
+this the colour scheme of my project this was provided to me by claude while brainstroming

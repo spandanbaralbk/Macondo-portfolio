@@ -101,6 +101,72 @@ body{
   color :#fff;
 }
 
+.heroshot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  padding:80px 56px 60px;
+  background:
+    radial-gradient(ellipse at 65% 50%,rgba(60,120,220,0.35) 0%,transparent 55%),
+    radial-gradient(ellipse at 30% 80%,rgba(20,50,120,0.4) 0%,transparent 50%),
+    linear-gradient(135deg,#0a0f2e 0%,#0d1a4a 35%,#080d1f 70%,#050810 100%);
+}
+
+.heroshotleft{
+  flex:1;
+  max-width:500px;
+}
+
+.heroname{
+  font-size:clamp(48px,7vw,88px);
+  font-weight:300;
+  color:#fff;
+  line-height:1.05;
+  letter-spacing:-0.025em;
+  margin-bottom:20px;
+  margin-top:12px;
+}
+
+.herodesc{
+  font-size:15px;
+  color:rgba(255,255,255,0.55);
+  line-height:1.75;
+  margin-bottom:32px;
+}
+
+.heroctabtn{
+  display:inline-block;
+  background:#3b6fd4;
+  color:#fff;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  padding:14px 28px;
+  border-radius:100px;
+  transition:background 0.2s;
+}
+
+.heroctabtn:hover{
+  background:#2d5ab8;
+}
+
+.heroshotright{
+  flex-shrink:0;
+}
+
+.myphoto{
+  width:320px;
+  height:380px;
+  object-fit:cover;
+  object-position:center top;
+  border-radius:24px;
+  border:0.5px solid rgba(255,255,255,0.1);
+  filter:brightness(1.05);
+}
+
 .maindrip{
   position :relative;
         min-height:calc(100vh - 70px);
@@ -436,6 +502,7 @@ footer{
   color :rgba(255,255,255,0.25);
       letter-spacing:0.04em;
 }
+
 .keonho{
   color: rgba(255,255,255,0.8);
   text-decoration: none;
@@ -447,6 +514,7 @@ padding: 8px 18px;
 border-radius: 100px;
 transition: background 0.15s,color 0.15s;
 }
+
 .keonho:hover{
   background:rgba(255,255,255,0.1) ;
   color: #fff;

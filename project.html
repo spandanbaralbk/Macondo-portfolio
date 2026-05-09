@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" 
+    rel="stylesheet">
+    <link rel="icon" type="image/png" href="Sbbk.png">
+    <style>
+        *,*::before,*::after{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-family: 'DM Sans',sans-serif;
+             background: #050810;
+             color: #fff;
+             overflow-x: hidden;
+        }
+        .naruto{
+            position: fixed;
+            top: 20px;
+            left: 24px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background:rgba(255,255,255,0.07);
+            border:0.5px solid rgba(255,255,255,0.15); 
+            border-radius: 100px;
+            padding: 10px 18px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .naruto:hover{
+            background: rgba(255,255,255,0.15);
+        }
+        .gojo{
+            text-align: center;
+            padding: 120px 24px 80px;
+            position: relative;
+        }
+        .gojo::before{
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:radial-gradient(ellipse at 50% 0%,rgba(60,120,220,0.25) 0%,transparent 60%); pointer-events:none;
+        }
+        .luffy{
+            font-family:'Bebas Neue',sans-serif ;
+            font-size: clamp(60px,12vw,140px);
+            letter-spacing: 0.04em;
+            line-height: 0.9;
+            background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.4) 100%); -webkit-text-fill-color:transparent; -webkit-background-clip:text; background-clip:text; 
+        }
+        .tanjiro{
+            font-size: 14px;
+            color:rgba(255,255,255,0.45) ;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-top: 16px;
+        }
+        .itachi{
+            font-family: 'Bebas Neue',sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(60,120,220,0.8);
+            margin-top: 12px;
+            display: block;
+        }
+        .eren{
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap:20px;
+        }
+  @media(max-width:900px){ .eren{ 
+    grid-template-columns:1fr 1fr; } 
+}
+        @media(max-width:600px){ .eren{ 
+            grid-template-columns:1fr; } 
+        }
+        .levi{
+            background: rgba(255,255,255,0.03);
+            border: 0.5px solid rgba(255,255,255,0.08);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+            position: relative;
+        }
+        .levi:hover{ 
+            transform:translateY(-6px);
+            border-color:rgba(60,120,220,0.4);
+            background:rgba(255,255,255,0.05); 
+        }
+        .mikasa{
+            width: 100%;
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+            background: #080d1f;
+        }
+        .mikasa iframe{
+            width: 150%;
+            height: 150%;
+            border: none;
+            transform:scale(0.67);/*Six,Seven!!*/
+            transform-origin: top left;
+            pointer-events:none;
+        }
+        .armin{ 
+            position:absolute; 
+            inset:0;
+            background:linear-gradient(to bottom,transparent 50%,#050810 100%); 
+            pointer-events:none; 
+        }
+        .historia{
+            position: absolute;
+            top:12px;
+            right: 12px;
+            background:rgba(60,120,220,0.2) ;
+            border:0.5px solid rgba(60,120,220,0.4);
+            border-radius: 100px;
+            padding: 4px 12px;
+            font-size:10px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color:#5a96ff;
+        }
+        .reiner{
+            padding:24px;
+        }
+        .bertholdt{
+            font-family: 'Bebas Neue',sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.25);
+            margin-bottom: 8px;
+            display: block;
+        }
+        .annie{
+            font-family: 'Bebas Neue',sans-serif;
+            font-size: 32px;
+            letter-spacing: 0.04em;
+            color: #fff; 
+            line-height:1;
+            margin-bottom:10px;
+        }
+        .hange{
+            font-size:13px;
+            color:rgba(255,255,255,0.5); 
+            line-height:1.65; 
+            margin-bottom:20px;
+        }
+        .erwin{
+            display: flex;
+            flex-wrap:wrap;
+            gap: 6px;
+            margin-bottom: 24px;
+        }
+        .moblit{
+            font-size: 10px;
+            padding: 3px 10px;
+            border-radius: 100px;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            background:rgba(60,120,220,0.1);
+            color: #5a96ff;
+            border: 0.5px solid rgba(60,120,220,0.25);
+        }
+        .ymir{
+            display: flex;
+            gap:10px;
+        }
+        .sasha{
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #3b6fd4;
+            color: #fff;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight:600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 10px 18px;
+            border-radius: 100px;
+            transition: background 0.2s;
+            flex:1;
+            justify-content: center;
+        }
+        .sasha:hover{ 
+            background:#2d5ab8; 
+        }
+        .connie{
+            display: flex;
+            gap:16px;
+            margin-bottom: 20px;
+            padding-top: 16px;
+            border-top: 0.5px solid rgba(255,255,255,0.06);
+        }
+        .jean{
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .marco{
+            font-family: 'Bebas Neue',sans-serif;
+            font-size: 22px;
+            color: #fff;
+            letter-spacing: 0.02em;
+        }
+        .floch{
+            font-size:10px;
+            color:rgba(255,255,255,0.3);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .zeke{
+            grid-column: span 2;
+        }
+        @media(max-width:900px){
+            .zeke{grid-column: span 1;}
+        }
+        .zeke .mikasa{ height:280px; }
+        .pieck{
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(255,180,0,0.15);
+            border:0.5px solid rgba(255,180,0,0.4);
+            border-radius: 100px;
+            padding: 4px 12px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #ffb400;
+        }
+        .porco{
+            max-width:1100px;
+            margin:0 auto;
+            padding:0 24px 80px;
+        }
+        .falco{
+            font-family:'Bebas Neue',sans-serif ;
+            font-size: 13px;
+            letter-spacing: 0.18em;
+            margin-bottom: 32px;
+            padding-bottom: 12px;
+            border-bottom: 0.5px solid rgba(255,255,255,0.06);
+        }
+        .gabi{ 
+            display:grid; 
+            grid-template-columns:1fr 1fr;
+            gap:20px;
+        }
+        @media(max-width:600px){
+            .gabi{
+                grid-template-columns: 1fr;
+            }
+        }
+        .udo{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .zofia{
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color:rgba(255,255,255,0.6);
+        }
+        .colt{
+            color:#5a96ff;
+            font-weight: 600;
+        }
+        .magath{
+            height: 4px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 100px;
+            overflow: hidden;
+        }
+        .yelena{
+            height: 100%;
+            background: linear-gradient(90deg,#3b6fd4,#5a96ff);
+            border-radius: 100px;
+            width: 0%;
+            transition: width 1.2s ease;
+        }
+        .onyankopon{
+            background:rgba(255,255,255,0.03);
+            border:0.5px dashed rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding:48px 36px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        .dot{
+            font-size: 36px;
+        }
+        .keith{
+            font-family: 'Bebas Neue',sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.06em;
+            color: rgba(255,255,255,0.2);
+        }
+        .grisha{
+            font-size: 12px;
+            color: rgba(255,255,255,0.2);
+        }
+        .dina{
+            text-align: center;
+            padding: 40px 24px;
+            font-size: 12px;
+            color:rgba(255,255,255,0.2);
+            letter-spacing: 0.06em;
+            border-top: 0.5px solid rgba(255,255,255,0.2);
+        }
+    </style>
+</head>
+<body>
+
+        <a href="index.html" class="naruto">← Back to Portfolio</a>
+
+        <div class="gojo">
+            <h1 class="luffy">My<br>Projects</h1>
+            <p class="tanjiro">Things I actually built</p>
+            <span class="itachi">3 Projects · All Live</span>
+        </div>
+
+        <div class="eren">
+
+            <div class="levi zeke">
+                <div class="mikasa">
+                    <iframe src="https://searchspandan.netlify.app/" loading="lazy" scrolling="no"></iframe>
+                    <div class="armin"></div>
+                    <span class="pieck">⭐ Featured</span>
+                    <span class="historia">Live</span>
+                </div>
+                <div class="reiner">
+                    <span class="bertholdt">Project 01</span>
+                    <div class="annie">Search Spandan</div>
+                    <p class="hange">A custom search engine built from scratch. Search the web your own way — no ads, no tracking, just results. Built it because why not have your own search engine fr.</p>
+                    <div class="erwin">
+                        <span class="moblit">HTML</span>
+                        <span class="moblit">CSS</span>
+                        <span class="moblit">JavaScript</span>
+                        <span class="moblit">Search API</span>
+                    </div>
+                    <div class="connie">
+                        <div class="jean">
+                            <span class="marco">01</span>
+                            <span class="floch">Project No.</span>
+                        </div>
+                        <div class="jean">
+                            <span class="marco">Live</span>
+                            <span class="floch">Status</span>
+                        </div>
+                        <div class="jean">
+                            <span class="marco">Web</span>
+                            <span class="floch">Platform</span>
+                        </div>
+                    </div>
+                    <div class="ymir">
+                        <a href="https://searchspandan.netlify.app/" target="_blank" class="sasha">View Live →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="levi">
+                <div class="mikasa">
+                    <iframe src="https://deepaksunchadipasal.netlify.app/" loading="lazy" scrolling="no"></iframe>
+                    <div class="armin"></div>
+                    <span class="historia">Live</span>
+                </div>
+                <div class="reiner">
+                    <span class="bertholdt">Project 02</span>
+                    <div class="annie">Shop Website</div>
+                    <p class="hange">A fully designed shop website. Clean product layouts, smooth UI and a proper shopping experience. Built for Deepak Sunchadi Pasal.</p>
+                    <div class="erwin">
+                        <span class="moblit">HTML</span>
+                        <span class="moblit">CSS</span>
+                        <span class="moblit">JavaScript</span>
+                        <span class="moblit">E-Commerce</span>
+                    </div>
+                    <div class="connie">
+                        <div class="jean">
+                            <span class="marco">02</span>
+                            <span class="floch">Project No.</span>
+                        </div>
+                        <div class="jean">
+                            <span class="marco">Live</span>
+                            <span class="floch">Status</span>
+                        </div>
+                        <div class="jean">
+                            <span class="marco">Web</span>
+                            <span class="floch">Platform</span>
+                        </div>
+                    </div>
+                    <div class="ymir">
+                        <a href="https://deepaksunchadipasal.netlify.app/" target="_blank" class="sasha">View Live →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="levi">
+                <div class="mikasa">
+                    <iframe src="https://bobaprojecthc.netlify.app/" loading="lazy" scrolling="no"></iframe>
+                    <div class="armin"></div>
+                    <span class="historia">Live</span>
+                </div>
+                <div class="reiner">
+                    <span class="bertholdt">Project 03</span>
+                    <div class="annie">Boba</div>
+                    <p class="hange">A boba tea themed website. Aesthetic design, clean layout and a fun vibe. Because boba deserves a good website fr no cap.</p>
+                    <div class="erwin">
+                        <span class="moblit">HTML</span>
+                        <span class="moblit">CSS</span>
+                        <span class="moblit">JavaScript</span>
+                        <span class="moblit">Design</span>
+                    </div>
+                    <div class="connie">
+                        <div class="jean">
+                            <span class="marco">03</span>
+                            <span class="floch">Project No.</span>
+                        </div>
+                        <div class="jean">
+                            <span class="marco">Live</span>
+                            <span class="floch">Status</span>
+                        </div>
+                        <div class="jean">
+                            <span class="marco">Web</span>
+                            <span class="floch">Platform</span>
+                        </div>
+                    </div>
+                    <div class="ymir">
+                        <a href="https://bobaprojecthc.netlify.app/" target="_blank" class="sasha">View Live →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="onyankopon">
+                <span class="dot">!</span>
+                <div class="keith">More Coming Soon</div>
+                <p class="grisha">Currently cooking something new fr</p>
+            </div>
+
+        </div>
+
+        <div class="porco">
+            <div class="falco">My Skills</div>
+            <div class="gabi">
+                <div class="udo">
+                    <div class="zofia"><span>HTML</span><span class="colt">85%</span></div>
+                    <div class="magath"><div class="yelena" data-width="85"></div></div>
+                </div>
+                <div class="udo">
+                    <div class="zofia"><span>CSS</span><span class="colt">80%</span></div>
+                    <div class="magath"><div class="yelena" data-width="80"></div></div>
+                </div>
+                <div class="udo">
+                    <div class="zofia"><span>JavaScript</span><span class="colt">60%</span></div>
+                    <div class="magath"><div class="yelena" data-width="60"></div></div>
+                </div>
+                <div class="udo">
+                    <div class="zofia"><span>UI/UX Design</span><span class="colt">65%</span></div>
+                    <div class="magath"><div class="yelena" data-width="65"></div></div>
+                </div>
+                <div class="udo">
+                    <div class="zofia"><span>Git & GitHub</span><span class="colt">55%</span></div>
+                    <div class="magath"><div class="yelena" data-width="55"></div></div>
+                </div>
+                <div class="udo">
+                    <div class="zofia"><span>Responsive Design</span><span class="colt">70%</span></div>
+                    <div class="magath"><div class="yelena" data-width="70"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dina"> Spandan Baral BK  Projects</div>
+        <script>
+            const fills= document.querySelectorAll('.yelena');
+            const observer = new IntersectionObserver((entries)=> {
+                entries.forEach(entry=>{
+                    if(entry.isIntersecting){
+                        const width = entry.target.getAttribute('data-width');
+                        entry.target.style.width = width + '%';
+                    }
+                });
+            }, { threshold: 0.3 });
+            fills.forEach(fill => observer.observe(fill));
+        </script>
+
+</body>
+</html>
